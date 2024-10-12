@@ -19,12 +19,17 @@
         </h5>
       </igx-card-header>
       <igx-card-content class="body-content">
-        <img src="/assets/Elegant Toy Carousel.png" class="image" />
+        <div class="row-layout group_2">
+          <img src="/assets/Elegant Toy Carousel.png" class="image" />
+          <h5 class="h5">
+            {{ item.id }}
+          </h5>
+        </div>
       </igx-card-content>
       <igx-card-actions class="actions-content">
         <ng-container igxStart>
-          <button igxButton="flat" igxRipple class="button">
-            Button
+          <button igxButton="flat" igxRipple [routerLink]="['/view2', item.id]" class="button">
+            View details
           </button>
         </ng-container>
         <ng-container igxEnd>

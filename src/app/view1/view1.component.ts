@@ -1,14 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { IGX_BUTTON_GROUP_DIRECTIVES, IGX_CARD_DIRECTIVES, IgxButtonDirective, IgxIconButtonDirective, IgxIconComponent, IgxOverlayOutletDirective, IgxRippleDirective, IgxToggleActionDirective, IgxToggleDirective } from 'igniteui-angular';
 import { Subject, take, takeUntil } from 'rxjs';
-import { ToyModel } from '../models/real-toy-store-api/toy-model';
 import { CategoryModel } from '../models/real-toy-store-api/category-model';
+import { ToyModel } from '../models/real-toy-store-api/toy-model';
 import { RealToyStoreAPIService } from '../services/real-toy-store-api.service';
 
 @Component({
   selector: 'app-view1',
   standalone: true,
-  imports: [IGX_BUTTON_GROUP_DIRECTIVES, IGX_CARD_DIRECTIVES, IgxToggleActionDirective, IgxOverlayOutletDirective, IgxIconButtonDirective, IgxButtonDirective, IgxRippleDirective, IgxToggleDirective, IgxIconComponent],
+  imports: [IGX_BUTTON_GROUP_DIRECTIVES, IGX_CARD_DIRECTIVES, IgxToggleActionDirective, IgxOverlayOutletDirective, IgxIconButtonDirective, IgxButtonDirective, IgxRippleDirective, IgxToggleDirective, IgxIconComponent, RouterLink],
   templateUrl: './view1.component.html',
   styleUrls: ['./view1.component.scss']
 })

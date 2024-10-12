@@ -1,0 +1,13 @@
+<button igxButton="flat" igxRipple routerLink="/view1" class="button">
+  &lt;- Back
+</button>
+<div class="column-layout group">
+  <igx-input-group type="border" class="input">
+    <input type="text" [value]="toy?.name || null" igxInput />
+    <label igxLabel>Label</label>
+  </igx-input-group>
+  <igx-input-group type="border" class="input">
+    <input type="text" [value]="toy?.categoryID || null" igxInput />
+    <label igxLabel>Label</label>
+  </igx-input-group>
+</div>
