@@ -1,154 +1,50 @@
 <div class="column-layout group">
   <igx-buttongroup class="button-group">
-    <button igxButton igxRipple>
-      Cat 1
-    </button>
-    <button igxButton igxRipple>
-      Cat 2
-    </button>
-    <button igxButton igxRipple>
-      cat 3
-    </button>
+    @for (item of toyStoreDataToyCategories; track item) {
+      <button igxButton igxRipple>
+        {{ item.name }}
+      </button>
+    }
   </igx-buttongroup>
 </div>
 <div class="group_1">
-  <igx-card class="card">
-    <igx-card-header>
-      <h3 igxCardHeaderTitle>
-        Toy 1
-      </h3>
-      <h5 igxCardHeaderSubtitle>
-        Subtitle goes here...
-      </h5>
-    </igx-card-header>
-    <igx-card-content class="body-content">
-      <img src="/assets/Elegant Toy Carousel.png" class="image" />
-    </igx-card-content>
-    <igx-card-actions class="actions-content">
-      <ng-container igxStart>
-        <button igxButton="flat" igxRipple class="button">
-          Button
-        </button>
-      </ng-container>
-      <ng-container igxEnd>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            favorite
-          </igx-icon>
-        </button>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            bookmark
-          </igx-icon>
-        </button>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            share
-          </igx-icon>
-        </button>
-      </ng-container>
-    </igx-card-actions>
-  </igx-card>
-  <igx-card class="card">
-    <igx-card-header>
-      <h3 igxCardHeaderTitle>
-        Toy 1
-      </h3>
-      <h5 igxCardHeaderSubtitle>
-        Subtitle goes here...
-      </h5>
-    </igx-card-header>
-    <igx-card-actions class="actions-content">
-      <ng-container igxStart>
-        <button igxButton="flat" igxRipple class="button">
-          Button
-        </button>
-      </ng-container>
-      <ng-container igxEnd>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            favorite
-          </igx-icon>
-        </button>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            bookmark
-          </igx-icon>
-        </button>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            share
-          </igx-icon>
-        </button>
-      </ng-container>
-    </igx-card-actions>
-  </igx-card>
-  <igx-card class="card">
-    <igx-card-header>
-      <h3 igxCardHeaderTitle>
-        Toy 1
-      </h3>
-      <h5 igxCardHeaderSubtitle>
-        Subtitle goes here...
-      </h5>
-    </igx-card-header>
-    <igx-card-actions class="actions-content">
-      <ng-container igxStart>
-        <button igxButton="flat" igxRipple class="button">
-          Button
-        </button>
-      </ng-container>
-      <ng-container igxEnd>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            favorite
-          </igx-icon>
-        </button>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            bookmark
-          </igx-icon>
-        </button>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            share
-          </igx-icon>
-        </button>
-      </ng-container>
-    </igx-card-actions>
-  </igx-card>
-  <igx-card class="card">
-    <igx-card-header>
-      <h3 igxCardHeaderTitle>
-        Toy 1
-      </h3>
-      <h5 igxCardHeaderSubtitle>
-        Subtitle goes here...
-      </h5>
-    </igx-card-header>
-    <igx-card-actions class="actions-content">
-      <ng-container igxStart>
-        <button igxButton="flat" igxRipple class="button">
-          Button
-        </button>
-      </ng-container>
-      <ng-container igxEnd>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            favorite
-          </igx-icon>
-        </button>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            bookmark
-          </igx-icon>
-        </button>
-        <button igxRipple igxIconButton="flat" class="icon-button">
-          <igx-icon>
-            share
-          </igx-icon>
-        </button>
-      </ng-container>
-    </igx-card-actions>
-  </igx-card>
+  @for (item of toyStoreDataToyStore; track item) {
+    <igx-card class="card">
+      <igx-card-header>
+        <h3 igxCardHeaderTitle>
+          {{ item.name }}
+        </h3>
+        <h5 igxCardHeaderSubtitle>
+          {{ item.description }}
+        </h5>
+      </igx-card-header>
+      <igx-card-content class="body-content">
+        <img src="/assets/Elegant Toy Carousel.png" class="image" />
+      </igx-card-content>
+      <igx-card-actions class="actions-content">
+        <ng-container igxStart>
+          <button igxButton="flat" igxRipple class="button">
+            Button
+          </button>
+        </ng-container>
+        <ng-container igxEnd>
+          <button igxRipple igxIconButton="flat" class="icon-button">
+            <igx-icon>
+              favorite
+            </igx-icon>
+          </button>
+          <button igxRipple igxIconButton="flat" class="icon-button">
+            <igx-icon>
+              bookmark
+            </igx-icon>
+          </button>
+          <button igxRipple igxIconButton="flat" class="icon-button">
+            <igx-icon>
+              share
+            </igx-icon>
+          </button>
+        </ng-container>
+      </igx-card-actions>
+    </igx-card>
+  }
 </div>
