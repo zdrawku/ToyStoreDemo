@@ -5,12 +5,18 @@
 @use "igniteui-angular/theming" as *;
 
 @include core();
-@include typography();
-@include light-theme($light-material-palette);
+@include typography($font-family: "Twinkle Star");
+
+$custom-palette: palette(
+  $primary: #53b6f8,
+  $secondary: #fb5fa6,
+  $surface: #fff);
+@include theme($palette: $custom-palette, $roundness: 0.5);
 
 body {
   background: hsla(var(--ig-surface-500));
   color: var(--ig-surface-500-contrast);
+  --ig-size: var(--ig-size-large);
 }
 
 html, body {

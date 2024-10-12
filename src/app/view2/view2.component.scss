@@ -6,3 +6,27 @@
   align-items: stretch;
   align-content: flex-start;
 }
+.button {
+  --ig-size: var(--ig-size-medium);
+  height: max-content;
+}
+.input {
+  height: max-content;
+  min-width: min-content;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 20px;
+  position: relative;
+  margin: 55px;
+  min-width: 50px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-basis: 0;
+}

@@ -15,11 +15,11 @@
   align-items: stretch;
   align-content: flex-start;
   position: relative;
-  padding: 36px;
-  height: 180px;
+  padding: 16px;
+  height: 70px;
   min-width: 50px;
   min-height: 50px;
-  max-height: 180px;
+  max-height: 70px;
 }
 .group_1 {
   display: grid;
@@ -40,6 +40,17 @@
   height: max-content;
   min-width: 320px;
   max-width: 320px;
+}
+.row-layout {
+  display: flex;
+}
+.group_2 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
 }
 .button-group {
   height: max-content;
@@ -62,6 +73,15 @@
 }
 .image {
   object-fit: cover;
+  width: 107px;
+  height: 124px;
   min-width: 0;
   min-height: 0;
+  max-width: 107px;
+  max-height: 124px;
+  flex-shrink: 0;
+}
+.h5 {
+  height: max-content;
+  min-width: min-content;
 }
