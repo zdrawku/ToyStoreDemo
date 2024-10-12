@@ -1,21 +1,21 @@
 <div class="column-layout group">
   <igx-buttongroup class="button-group">
-    @for (item of toyStoreDataToyCategories; track item) {
-      <button igxButton igxRipple>
-        {{ item.name }}
+    @for (item of realToyStoreAPICategoryModel; track item) {
+      <button igxButton igxRipple (click)="toggleButtonClick(item)">
+        {{ item.description }}
       </button>
     }
   </igx-buttongroup>
 </div>
 <div class="group_1">
-  @for (item of toyStoreDataToyStore; track item) {
+  @for (item of realToyStoreAPIToyModel; track item) {
     <igx-card class="card">
       <igx-card-header>
         <h3 igxCardHeaderTitle>
           {{ item.name }}
         </h3>
         <h5 igxCardHeaderSubtitle>
-          {{ item.description }}
+          {{ item.price }}
         </h5>
       </igx-card-header>
       <igx-card-content class="body-content">

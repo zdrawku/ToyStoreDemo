@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IGX_BUTTON_GROUP_DIRECTIVES, IGX_CARD_DIRECTIVES, IgxButtonDirective, IgxIconButtonDirective, IgxIconComponent, IgxOverlayOutletDirective, IgxRippleDirective, IgxToggleActionDirective, IgxToggleDirective } from 'igniteui-angular';
-import { Subject, takeUntil } from 'rxjs';
-import { ToyStoreType } from '../models/toy-store-data/toy-store-type';
-import { ToyCategoriesType } from '../models/toy-store-data/toy-categories-type';
-import { ToyStoreDataService } from '../services/toy-store-data.service';
+import { Subject, take, takeUntil } from 'rxjs';
+import { ToyModel } from '../models/real-toy-store-api/toy-model';
+import { CategoryModel } from '../models/real-toy-store-api/category-model';
+import { RealToyStoreAPIService } from '../services/real-toy-store-api.service';
 
 @Component({
   selector: 'app-view1',
@@ -14,24 +14,44 @@ import { ToyStoreDataService } from '../services/toy-store-data.service';
 })
 export class View1Component implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
-  public toyStoreDataToyCategories: ToyCategoriesType[] = [];
-  public toyStoreDataToyStore: ToyStoreType[] = [];
+
+  private _selectedCategory?: number;
+  public get selectedCategory(): number | undefined {
+    return this._selectedCategory;
+  }
+  public set selectedCategory(value: number | undefined) {
+    this._selectedCategory = value;
+    this.realToyStoreAPIToyModel$.next();
+  }
+  public realToyStoreAPICategoryModel: CategoryModel[] = [];
+  public realToyStoreAPIToyModel: ToyModel[] = [];
+  public realToyStoreAPIToyModel$: Subject<void> = new Subject<void>();
+
 
   constructor(
-    private toyStoreDataService: ToyStoreDataService,
+    private realToyStoreAPIService: RealToyStoreAPIService,
   ) {}
 
   ngOnInit() {
-    this.toyStoreDataService.getToyCategoriesList().pipe(takeUntil(this.destroy$)).subscribe(
-      data => this.toyStoreDataToyCategories = data
+    this.realToyStoreAPIService.getCategoryModelList().pipe(takeUntil(this.destroy$)).subscribe(
+      data => this.realToyStoreAPICategoryModel = data
     );
-    this.toyStoreDataService.getToyStoreList().pipe(takeUntil(this.destroy$)).subscribe(
-      data => this.toyStoreDataToyStore = data
+    this.realToyStoreAPIService.getToyModelList(this.selectedCategory as any).pipe(takeUntil(this.destroy$)).subscribe(
+      data => this.realToyStoreAPIToyModel = data
     );
+    this.realToyStoreAPIToyModel$.pipe(takeUntil(this.destroy$)).subscribe(
+      () => { this.realToyStoreAPIService.getToyModelList(this.selectedCategory as any).pipe(take(1)).subscribe(
+        data => this.realToyStoreAPIToyModel = data
+    )});
   }
 
   ngOnDestroy() {
     this.destroy$.next();
+    this.realToyStoreAPIToyModel$.complete();
     this.destroy$.complete();
+  }
+
+  public toggleButtonClick(item: CategoryModel) {
+    this.selectedCategory = item.id;
   }
 }
